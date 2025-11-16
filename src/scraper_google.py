@@ -9,12 +9,12 @@ from google_news_client import GoogleNewsFetcher
 from brief_generator import BriefGenerator
 
 
-def load_config(config_file: str = "../config_google.yaml") -> dict:
+def load_config(config_file: str = "../config/config_google.yaml") -> dict:
     """Load configuration from YAML file"""
     import os
     # Get the directory where this script is located
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    # Build path to config file (in parent directory)
+    # Build path to config file
     config_path = os.path.join(script_dir, config_file)
 
     with open(config_path, 'r') as f:

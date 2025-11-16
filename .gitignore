@@ -24,4 +24,5 @@ __pycache__/
 Thumbs.db
 
 # Logs
+logs/
 *.log

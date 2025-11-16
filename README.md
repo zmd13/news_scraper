@@ -33,13 +33,12 @@ This scraper automatically:
 
 | Document | Purpose | When to Use |
 |----------|---------|-------------|
-| **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** | Daily command cheat sheet | Every day before running |
-| **[PRODUCTION_README.md](PRODUCTION_README.md)** | Complete production guide | When you need detailed help |
-| **[SCHEDULING_GUIDE.md](SCHEDULING_GUIDE.md)** | Auto-run setup instructions | To schedule daily automation |
-| **[FEATURE_REQUEST_EMAIL_DELIVERY.md](FEATURE_REQUEST_EMAIL_DELIVERY.md)** | Email delivery feature plan | To implement email automation |
-| **[TESTING_SUMMARY.md](TESTING_SUMMARY.md)** | 30-day vs 7-day comparison | To understand testing results |
-| **[TESTING_DOCUMENTATION.md](TESTING_DOCUMENTATION.md)** | Technical testing details | For deep technical reference |
-| **[DEPLOYMENT_SUMMARY.md](DEPLOYMENT_SUMMARY.md)** | Deployment overview | For deployment status |
+| **[QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)** | Daily command cheat sheet | Every day before running |
+| **[SCHEDULING_GUIDE.md](docs/SCHEDULING_GUIDE.md)** | Auto-run setup instructions | To schedule daily automation |
+| **[FEATURE_REQUEST_EMAIL_DELIVERY.md](docs/FEATURE_REQUEST_EMAIL_DELIVERY.md)** | Email delivery feature plan | To implement email automation |
+| **[TESTING_SUMMARY.md](docs/archive/TESTING_SUMMARY.md)** | 30-day vs 7-day comparison | To understand testing results |
+| **[TESTING_DOCUMENTATION.md](docs/archive/TESTING_DOCUMENTATION.md)** | Technical testing details | For deep technical reference |
+| **[DEPLOYMENT_SUMMARY.md](docs/archive/DEPLOYMENT_SUMMARY.md)** | Deployment overview | For deployment status |
 
 ---
 

@@ -9,7 +9,7 @@ from google_news_client_debug import GoogleNewsFetcherDebug
 from brief_generator import BriefGenerator
 
 
-def load_config(config_file: str = "../config_google.yaml") -> dict:
+def load_config(config_file: str = "../../config/config_google.yaml") -> dict:
     """Load configuration from YAML file"""
     import os
     script_dir = os.path.dirname(os.path.abspath(__file__))
