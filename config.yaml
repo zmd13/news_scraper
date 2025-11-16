@@ -1,0 +1,88 @@
+industry: healthcare
+
+# Healthcare business and value-based care RSS feeds
+rss_feeds:
+  - name: "Healthcare Dive"
+    url: "https://www.healthcaredive.com/feeds/news/"
+  - name: "Fierce Healthcare"
+    url: "https://www.fiercehealthcare.com/rss/xml"
+  - name: "Modern Healthcare"
+    url: "https://www.modernhealthcare.com/rss"
+  - name: "Becker's Hospital Review"
+    url: "https://www.beckershospitalreview.com/rss"
+  - name: "Advisory Board"
+    url: "https://www.advisory.com/daily-briefing/rss"
+
+# Keywords to identify key topics
+keywords:
+  - "breakthrough"
+  - "FDA approval"
+  - "clinical trial"
+  - "vaccine"
+  - "drug"
+  - "treatment"
+  - "medical device"
+  - "biotech"
+  - "pharmaceutical"
+  - "health technology"
+  - "patient care"
+  - "disease"
+  - "therapy"
+  - "fraud waste and abuse"
+  - "FWA"
+  - "program integrity"
+  - "shared savings"
+  - "advanced analytics"
+  - "risk stratification"
+  - "predictive modeling"
+  - "risk scoring"
+  - "HCC"
+  - "RAF score"
+  - "overpayment"
+  - "value-based care"
+  - "value based care"
+  - "VBC"
+  - "ACO"
+  - "accountable care"
+  - "MSSP"
+  - "Medicare Shared Savings Program"
+  - "ACO REACH"
+  - "capitation"
+  - "bundled payment"
+  - "two-sided risk"
+  - "downside risk"
+  - "CMS"
+  - "CMMI"
+  - "Medicare Advantage"
+  - "payment reform"
+  - "health system"
+  - "IPA"
+  - "independent physician association"
+  - "Pearl Health"
+  - "Vytalize"
+  - "Agilon"
+  - "UnitedHealth"
+  - "Aledade"
+  - "Honest Health"
+  - "Milliman"
+  - "Oliver Wyman"
+  - "Arbital"
+  - "Arcadia"
+  - "CareJourney"
+  - "Lightbeam"
+  - "Innovaccer"
+  - "Cedar Gate"
+  - "total cost of care"
+  - "medical loss ratio"
+  - "MLR"
+  - "actuarial"
+
+# Number of articles to include in brief
+max_articles: 10
+
+# How far back to look for news (in hours)
+time_window_hours: 168  # 7 days for testing
+
+# Output settings
+output_format: "html"  # Options: markdown, text, html
+output_file: "../briefs/healthcare_brief_{date}.html"  # {date} will be replaced with YYYY-MM-DD
