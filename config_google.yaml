@@ -1,0 +1,135 @@
+industry: "Value-Based Care & Healthcare Actuarial"
+
+# Google News Configuration
+google_news:
+  enabled: true
+
+  # Time period options: 'h' (hour), 'd' (day), 'm' (month), 'y' (year)
+  # Examples: '7d' = 7 days, '24h' = 24 hours, '1m' = 1 month
+  # PRODUCTION MODE: 7 days for daily brief generation
+  period: "7d"
+
+  # Maximum results per query
+  max_results_per_query: 50
+
+  # Language (default: 'en')
+  language: "en"
+
+  # Country (default: 'US')
+  country: "US"
+
+  # Search queries - will search Google News for each
+  search_queries:
+    # Value-based care and ACO programs
+    - "value-based care"
+    - "ACO accountable care"
+    - "MSSP Medicare Shared Savings"
+    - "ACO REACH"
+
+    # Target companies
+    - "Pearl Health"
+    - "Agilon Health"
+    - "Aledade"
+    - "Vytalize Health"
+
+    # Competitors
+    - "Milliman healthcare"
+    - "Oliver Wyman healthcare"
+    - "Arbital Health"
+    - "Arcadia healthcare"
+    - "Validate Health"
+
+    # Companies to watch
+    - "Lightbeam Health"
+    - "Innovaccer"
+    - "Cedar Gate"
+    - "Health Endeavors"
+    - "CareJourney"
+
+    # Government and policy
+    - "CMS Medicare"
+    - "CMMI innovation"
+    - "Medicare Advantage risk"
+
+    # Financial and risk terms
+    - "healthcare risk adjustment"
+    - "shared savings program"
+    - "capitation payment"
+    - "total cost of care"
+
+# Keywords to identify relevant articles (additional filtering)
+keywords:
+  # Value-based care models
+  - "value-based care"
+  - "value based care"
+  - "VBC"
+  - "ACO"
+  - "accountable care"
+  - "MSSP"
+  - "Medicare Shared Savings Program"
+  - "ACO REACH"
+  - "shared savings"
+  - "capitation"
+  - "bundled payment"
+  - "two-sided risk"
+  - "downside risk"
+
+  # Government & Policy
+  - "CMS"
+  - "CMMI"
+  - "Medicare Advantage"
+  - "payment reform"
+
+  # Provider organizations
+  - "health system"
+  - "IPA"
+  - "independent physician association"
+
+  # Companies you follow
+  - "Pearl Health"
+  - "Vytalize"
+  - "Agilon"
+  - "UnitedHealth"
+  - "Aledade"
+  - "Honest Health"
+
+  # Competitors
+  - "Milliman"
+  - "Oliver Wyman"
+  - "Arbital"
+  - "Validate Health"
+  - "Alliant"
+  - "Falcon Health"
+  - "Arcadia"
+  - "CareJourney"
+  - "Lightbeam"
+  - "Innovaccer"
+  - "Cedar Gate"
+
+  # Financial & Analytics
+  - "fraud waste and abuse"
+  - "FWA"
+  - "program integrity"
+  - "risk stratification"
+  - "predictive modeling"
+  - "advanced analytics"
+  - "risk scoring"
+  - "HCC"
+  - "RAF score"
+  - "risk adjustment"
+  - "total cost of care"
+  - "medical loss ratio"
+  - "MLR"
+  - "actuarial"
+  - "overpayment"
+
+# Number of articles to include in brief
+# PRODUCTION MODE: No limit for 7-day period (will show all unique articles found)
+max_articles: 9999
+
+# How far back to look for news (in hours) - used for filtering
+time_window_hours: 168  # 7 days
+
+# Output settings
+output_format: "html"  # Options: markdown, text, html
+output_file: "../briefs/healthcare_brief_google_{date}.html"  # {date} will be replaced with YYYY-MM-DD

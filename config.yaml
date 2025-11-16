@@ -2,6 +2,7 @@ industry: healthcare
 
 # Healthcare business and value-based care RSS feeds
 rss_feeds:
+  # Major Industry News
   - name: "Healthcare Dive"
     url: "https://www.healthcaredive.com/feeds/news/"
   - name: "Fierce Healthcare"
@@ -12,6 +13,46 @@ rss_feeds:
     url: "https://www.beckershospitalreview.com/rss"
   - name: "Advisory Board"
     url: "https://www.advisory.com/daily-briefing/rss"
+  - name: "Healthcare IT News"
+    url: "https://www.healthcareitnews.com/rss.xml"
+  - name: "Healthcare Finance News"
+    url: "https://www.healthcarefinancenews.com/rss.xml"
+
+  # Companies You Follow
+  - name: "Agilon Health"
+    url: "https://www.agilonhealth.com/feed"
+
+# Web scraping targets (for sites without RSS)
+web_scrape_sources:
+  # Competitors - Milliman
+  - name: "Milliman Worldwide Insight"
+    url: "https://us.milliman.com/en/Insight/Worldwide-insight#sortCriteria=%40m_artdate%20descending"
+    type: "news_list"
+  - name: "Milliman Insight"
+    url: "https://www.milliman.com/en/insight"
+    type: "news_list"
+  - name: "Milliman Press Releases"
+    url: "https://www.milliman.com/en/News-and-Events/Press-release-archive/2025-press-releases"
+    type: "news_list"
+
+  # Competitors - Other
+  - name: "Arbital Health Blog"
+    url: "https://arbitalhealth.com/blog"
+    type: "blog"
+  - name: "Falcon Health Blog"
+    url: "https://falconhealth.ai/blog"
+    type: "blog"
+  - name: "Arcadia Resources"
+    url: "https://arcadia.io/resources"
+    type: "resources"
+
+  # Companies to Watch
+  - name: "Pearl Health Blog"
+    url: "https://pearlhealth.com/blog"
+    type: "blog"
+  - name: "Aledade Newsroom"
+    url: "https://aledade.com/newsroom"
+    type: "news_list"
 
 # Keywords to identify key topics
 keywords:

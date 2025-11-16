@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-Healthcare News Scraper
-Scrapes RSS feeds for healthcare news and generates a brief
+Healthcare News Scraper - NewsAPI Version
+Uses NewsAPI to search for healthcare news across all sources
 """
 import yaml
 from datetime import datetime
-from feed_parser import FeedParser
-from web_scraper import WebScraper
+from news_api_client import NewsAPIFetcher, load_api_key
 from brief_generator import BriefGenerator
 
 
-def load_config(config_file: str = "../config.yaml") -> dict:
+def load_config(config_file: str = "../config_newsapi.yaml") -> dict:
     """Load configuration from YAML file"""
     import os
     # Get the directory where this script is located
@@ -23,9 +22,9 @@ def load_config(config_file: str = "../config.yaml") -> dict:
 
 
 def main():
-    """Main function to run the news scraper"""
+    """Main function to run the NewsAPI scraper"""
     print("=" * 70)
-    print("HEALTHCARE NEWS SCRAPER")
+    print("HEALTHCARE NEWS SCRAPER - NewsAPI Edition")
     print("=" * 70)
     print()
 
@@ -34,51 +33,51 @@ def main():
     config = load_config()
 
     industry = config.get('industry', 'Healthcare')
-    feeds = config.get('rss_feeds', [])
-    web_sources = config.get('web_scrape_sources', [])
+    news_api_config = config.get('news_api', {})
     keywords = config.get('keywords', [])
-    max_articles = config.get('max_articles', 10)
-    time_window_hours = config.get('time_window_hours', 24)
-    output_format = config.get('output_format', 'markdown')
-    output_file = config.get('output_file', 'healthcare_brief.md')
+    max_articles = config.get('max_articles', 20)
+    time_window_hours = config.get('time_window_hours', 168)
+    output_format = config.get('output_format', 'html')
+    output_file = config.get('output_file', '../briefs/healthcare_brief_newsapi.html')
+
+    # Get NewsAPI settings
+    search_queries = news_api_config.get('search_queries', [])
+    max_results_per_query = news_api_config.get('max_results_per_query', 50)
+    domains = news_api_config.get('domains')
 
     print(f"Industry: {industry}")
-    print(f"RSS Feeds: {len(feeds)}")
-    print(f"Web Scrape Sources: {len(web_sources)}")
+    print(f"Search Queries: {len(search_queries)}")
     print(f"Keywords: {len(keywords)}")
+    print(f"Domains: {len(domains.split(',')) if domains else 'All'}")
     print(f"Time Window: {time_window_hours} hours")
     print(f"Max Articles: {max_articles}")
     print()
 
-    all_articles = []
+    # Load API key
+    try:
+        api_key = load_api_key()
+        print("✓ API key loaded from .env")
+    except Exception as e:
+        print(f"✗ Error loading API key: {str(e)}")
+        print("Make sure NEWSAPI_KEY is set in your .env file")
+        return
 
-    # Parse RSS feeds
-    if feeds:
-        print("Parsing RSS feeds...")
-        print("-" * 70)
-        rss_parser = FeedParser(feeds, keywords, time_window_hours)
-        rss_articles = rss_parser.parse_all_feeds()
-        all_articles.extend(rss_articles)
-        print("-" * 70)
-        print(f"Found {len(rss_articles)} articles from RSS feeds")
-        print()
+    print()
 
-    # Scrape web sources
-    if web_sources:
-        print("Scraping web sources...")
-        print("-" * 70)
-        web_scraper = WebScraper(web_sources, keywords, time_window_hours)
-        web_articles = web_scraper.scrape_all_sources()
-        all_articles.extend(web_articles)
-        print("-" * 70)
-        print(f"Found {len(web_articles)} articles from web scraping")
-        print()
+    # Fetch articles from NewsAPI
+    print("Fetching articles from NewsAPI...")
+    print("-" * 70)
 
-    # Sort all articles by date and limit
-    all_articles.sort(key=lambda x: x.get('published', datetime.min), reverse=True)
-    articles = all_articles[:max_articles]
+    fetcher = NewsAPIFetcher(api_key, keywords, time_window_hours, domains)
+    articles = fetcher.search_by_queries(search_queries, max_results_per_query)
 
-    print(f"Total articles after filtering: {len(articles)}")
+    print("-" * 70)
+    print(f"Found {len(articles)} total articles from NewsAPI")
+    print()
+
+    # Limit to max_articles
+    articles = articles[:max_articles]
+    print(f"Showing top {len(articles)} articles")
     print()
 
     # Generate brief

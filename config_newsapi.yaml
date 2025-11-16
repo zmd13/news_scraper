@@ -1,0 +1,104 @@
+industry: "Value-Based Care & Healthcare Actuarial"
+
+# NewsAPI Configuration
+news_api:
+  enabled: true
+  # API key is loaded from .env file (NEWSAPI_KEY)
+
+  # Domain whitelist - only search these healthcare-focused domains
+  domains: "healthcaredive.com,fiercehealthcare.com,modernhealthcare.com,beckershospitalreview.com,statnews.com,medcitynews.com,healthcareitnews.com,healthcarefinancenews.com,mobihealthnews.com,healthaffairs.org,kff.org,kffhealthnews.org,advisory.com,hcinnovationgroup.com,aha.org,cnbc.com,yahoo.com,globenewswire.com,kevinmd.com,histalk2.com,techtarget.com,rand.org,house.gov,wsj.com,nytimes.com,bloomberg.com,cnn.com,reuters.com,theguardian.com,bbc.com,time.com,propublica.org,npr.org,thehill.com,medscape.com"
+
+  # Search queries - combine related terms to maximize coverage
+  search_queries:
+    # Value-based care and ACO programs
+    - "\"value-based care\" OR ACO OR \"accountable care\" OR MSSP OR \"Medicare Shared Savings Program\" OR \"ACO REACH\""
+
+    # Competitors and analytics firms
+    - "Milliman OR \"Oliver Wyman\" OR Arbital OR Arcadia OR \"Falcon Health\" OR Validate"
+
+    # Companies to watch
+    - "\"Pearl Health\" OR Agilon OR Aledade OR Vytalize OR Lightbeam OR Innovaccer OR \"Cedar Gate\" OR Arcadia OR \"Health Endeavors\" OR CareJourney"
+
+    # Government and policy
+    - "CMS OR CMMI OR \"Medicare Advantage\" OR \"payment reform\" OR \"risk adjustment\""
+
+    # Financial and risk terms
+    - "\"shared savings\" OR capitation OR \"bundled payment\" OR \"total cost of care\" OR \"medical loss ratio\""
+
+  max_results_per_query: 50
+
+# Keywords to identify relevant articles (additional filtering)
+keywords:
+  # Value-based care models
+  - "value-based care"
+  - "value based care"
+  - "VBC"
+  - "ACO"
+  - "accountable care"
+  - "MSSP"
+  - "Medicare Shared Savings Program"
+  - "ACO REACH"
+  - "shared savings"
+  - "capitation"
+  - "bundled payment"
+  - "two-sided risk"
+  - "downside risk"
+
+  # Government & Policy
+  - "CMS"
+  - "CMMI"
+  - "Medicare Advantage"
+  - "payment reform"
+
+  # Provider organizations
+  - "health system"
+  - "IPA"
+  - "independent physician association"
+
+  # Companies you follow
+  - "Pearl Health"
+  - "Vytalize"
+  - "Agilon"
+  - "UnitedHealth"
+  - "Aledade"
+  - "Honest Health"
+
+  # Competitors
+  - "Milliman"
+  - "Oliver Wyman"
+  - "Arbital"
+  - "Validate Health"
+  - "Alliant"
+  - "Falcon Health"
+  - "Arcadia"
+  - "CareJourney"
+  - "Lightbeam"
+  - "Innovaccer"
+  - "Cedar Gate"
+
+  # Financial & Analytics
+  - "fraud waste and abuse"
+  - "FWA"
+  - "program integrity"
+  - "risk stratification"
+  - "predictive modeling"
+  - "advanced analytics"
+  - "risk scoring"
+  - "HCC"
+  - "RAF score"
+  - "risk adjustment"
+  - "total cost of care"
+  - "medical loss ratio"
+  - "MLR"
+  - "actuarial"
+  - "overpayment"
+
+# Number of articles to include in brief
+max_articles: 20
+
+# How far back to look for news (in hours)
+time_window_hours: 168  # 7 days
+
+# Output settings
+output_format: "html"  # Options: markdown, text, html
+output_file: "../briefs/healthcare_brief_newsapi_{date}.html"  # {date} will be replaced with YYYY-MM-DD
